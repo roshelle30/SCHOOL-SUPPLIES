@@ -48,9 +48,6 @@ public class UserDao {
                     System.out.println("Login Failed: Your account is PENDING for Admin approval.");
                     return null;
                 }
-
-                // DIRI DAPITA GI-IBUTANG ANG BAG-ONG CODE:
-                // Gigamit nato ang role aron moingon og "Logged in as: ADMIN" sa database
                 try (PreparedStatement logStmt = conn.prepareStatement(logSql)) {
                     logStmt.setInt(1, userId);
                     logStmt.setString(2, "Logged in as: " + role.toUpperCase());
